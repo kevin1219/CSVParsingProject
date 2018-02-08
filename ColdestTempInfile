@@ -1,0 +1,69 @@
+import edu.duke.*;
+import org.apache.commons.csv.*;
+/**
+ * Write a description of class ColdestFile here.
+ *
+ * @author (your name)
+ * @version (a version number or a date)
+ */
+public class ColdestFile
+{
+    public CSVRecord ColdestHourInfile (CSVParser parser){
+        CSVRecord smallestSoFar = null;
+        for (CSVRecord currentRow : parser) {
+            //if smallestSoFar is nothing
+            if(smallestSoFar=null){
+            //smallestsoFar = currentRow;
+            smallestSoFar = currentRow;
+            }
+            else {
+                double currentTemp = Double.parseDobule(currentRow.get("TemperatureF"));
+                double smallestTemp=Double.paseDouble(smallestSoFar.get("TemperatureF"));
+                if (currentTemp==-9999){
+                    continue;
+                }
+                if (currentTemp<smallestTemp){
+                    smallestSoFar = currentRow;
+                }
+           }
+    }
+}
+
+public void testColdestInFile(){
+    FileResource fr= new FileResource();
+    CSVParser parser= fr.getCSVParser();
+    CSVRecord coldest= ColdestHourInFile(parser);
+    System.out.printIn(coldest);
+}
+
+public CSVRecord LowestHumityInfile (CSVParser parser){
+        CSVRecord smallestSoFar = null;
+        for (CSVRecord currentRow : parser) {
+            //if smallestSoFar is nothing
+            if(lowestHumiditySoFar=null){
+            //smallestsoFar = currentRow;
+            smallestSoFar = currentRow;
+            }
+            else {
+                double currentTemp = Double.parseDouble(currentRow.get("HumidtiyF"));
+                double smallestTemp= Double.parseDouble(smallestSoFar.get("HumidityF"));
+                if (currentTemp==-9999){
+                    continue;
+                }
+                if (currentTemp<smallestTemp){
+                    smallestSoFar = currentRow;
+                }
+           }
+    }
+}
+
+
+
+public void testColdestInManyDays(){
+    CSVRecord coldest = coldestInManydays();
+    System.out.printIn(coldest);
+}
+}
+
+    
+        
